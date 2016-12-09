@@ -48,3 +48,30 @@ LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib
 INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial
 LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/aarch64-linux-gnu/hdf5/serial/
 </code></pre>
+다음 명령어를 통해 Makefile을 에디터로 엽니다.
+<pre><code>cd HOMEPATH/caffe
+vi Makefile
+</code></pre>
+아래 줄을 그 아래 줄처럼 수정합니다.
+<pre><code>NVCCFLAGS += -ccbin=$(CXX) -Xcompiler -fPIC $(COMMON_FLAGS) 
+
+NVCCFLAGS += -D_FORCE_INLINES -ccbin=$(CXX) -Xcompiler -fPIC $(COMMON_FLAGS)
+</code></pre>
+다음 명령어를 통해 hdf5 관련 링크를 걸어줍니다.
+<pre><code>cd /usr/lib/aarch64-linux-gnu/
+sudo ln libhdf5_serial.so.10.1.0 libhdf5.so
+sudo ln libhdf5_serial_hl.so.10.0.2 libhdf5_hl.so
+sudo ldconfig # Enable the connection to take effect
+</code></pre>
+다음 명령어를 통해 Caffe를 컴파일 합니다.
+<pre><code>cd HOMEPATH/caffe
+make all -j4
+make test -j4
+make runtest -j4
+make pycaffe -j4
+</code></pre>
+다음 명령어를 통해 caffe가 import되는지 확인합니다.
+<pre><code>cd HOMEPATH/caffe/ python
+python
+import caffe
+</code></pre>
