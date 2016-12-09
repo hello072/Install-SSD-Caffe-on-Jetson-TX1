@@ -70,10 +70,10 @@ sudo ldconfig # Enable the connection to take effect
 
 -j4 옵션을 사용하라는 분들도 있지만 저는 남는 것이 시간이라 그냥 3으로 했습니다.
 <pre><code>cd HOMEPATH/caffe
-make all -j4
-make test -j4
-make runtest -j4
-make pycaffe -j4
+make all -j3
+make test -j3
+make runtest -j3
+make pycaffe -j3
 </code></pre>
 다음 명령어를 통해 caffe가 import되는지 확인합니다.
 <pre><code>cd HOMEPATH/caffe/ python
