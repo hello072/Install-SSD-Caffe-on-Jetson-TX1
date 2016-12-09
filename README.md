@@ -41,6 +41,9 @@ vi Makefile.config
 아래 주석을 지웁니다.
 <pre><code># USE_CUDNN := 1
 </code></pre>
+BLAS로 atlas를 사용하도록 수정합니다.
+<pre><code>BLAS := atlas
+</code></pre>
 아래 두 줄에 경로를 각각 추가하여 그 아래 두 줄처럼 수정합니다.
 <pre><code>INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include
 LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib
