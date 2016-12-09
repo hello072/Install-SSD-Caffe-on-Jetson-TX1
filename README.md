@@ -67,6 +67,8 @@ sudo ln libhdf5_serial_hl.so.10.0.2 libhdf5_hl.so
 sudo ldconfig # Enable the connection to take effect
 </code></pre>
 다음 명령어를 통해 Caffe를 컴파일 합니다.
+
+-j4 옵션을 사용하라는 분들도 있지만 저는 남는 것이 시간이라 그냥 3으로 했습니다.
 <pre><code>cd HOMEPATH/caffe
 make all -j4
 make test -j4
