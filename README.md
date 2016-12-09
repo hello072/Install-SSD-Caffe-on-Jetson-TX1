@@ -30,7 +30,7 @@ cd HOMEPATH/caffe/
 git checkout ssd
 cd python/
 sudo su
-for req in $ (cat "requirements.txt"); do pip install -i https://pypi.tuna.tsinghua.edu.cn/simple $ req; done 
+for req in $(cat "requirements.txt"); do pip install -i https://pypi.tuna.tsinghua.edu.cn/simple $ req; done 
 </code></pre>
 Ctrl + Shift + d 를 통해 su모드에서 빠져나옵니다.
 다음 명령어를 통해 Makefile.config을 복사하고, 에디터로 엽니다.
